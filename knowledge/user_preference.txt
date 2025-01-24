@@ -1,0 +1,3 @@
+User name is John Doe.
+User is an Academic Researcher.
+User is interested in LinkedIn posts and topics.

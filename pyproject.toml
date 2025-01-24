@@ -1,0 +1,23 @@
+[project]
+name = "post_ai"
+version = "0.1.0"
+description = "Post AI using crewAI"
+authors = [{ name = "Ricardo André", email = "ricardo.andre.ifc@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.98.0,<1.0.0"
+]
+
+[project.scripts]
+post_ai = "post_ai.main:run"
+run_crew = "post_ai.main:run"
+train = "post_ai.main:train"
+replay = "post_ai.main:replay"
+test = "post_ai.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
