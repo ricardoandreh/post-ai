@@ -1,7 +1,7 @@
 research:
   description: >
-    1. Priorize as últimas tendências, os principais autores e as notícias mais relevantes sobre {tema}.
-    2. Identifique o público-alvo, considerando seus interessses e pontos de dor.
+    1. Priorize as últimas tendências, os principais autores e as notícias mais relevantes sobre {tema}.\n
+    2. Identifique o público-alvo, considerando seus interessses e pontos de dor.\n
     3. Inclua palavras-chaves de SEO e dados ou fontes relevantes.
   expected_output: >
     Um plano de tendências sobre {tema}, com as palavras mais relevantes de SEO e as últimas notícias.
@@ -9,10 +9,10 @@ research:
 
 write:
   description: >
-    1. Use os dados coletados de conteúdo para criar um post de LinkedIn atraente sobre {tema}.
-    2. Incorpore palavras-chave de SEO de forma natural.
-    3. Organize o texto de forma BEM estruturada, definindo o título e subtítulos que estejam alinhados com o tópico abordado.
-    4. Explore ótimas estratégias/explicações de comunicação que estejam alinhados com o tom, aspectos e tema de artigo em questão.
+    1. Use os dados coletados de conteúdo para criar um post de LinkedIn atraente sobre {tema}.\n
+    2. Incorpore palavras-chave de SEO de forma natural.\n
+    3. Organize o texto de forma BEM estruturada, definindo o título e subtítulos que estejam alinhados com o tópico abordado.\n
+    4. Explore ótimas estratégias/explicações de comunicação que estejam alinhados com o tom, aspectos e tema de artigo em questão.\n
     5. Certifique-se de que o post esteja estruturado de forma cativante, com uma conclusão que faça o leitor refletir.
   expected_output: >
     Um texto de LinkedIn sobre {tema}.
@@ -20,10 +20,9 @@ write:
 
 edit:
   description: >
-    1. Revisar a postagem do LinkedIn em questão quanto a erros gramaticais.
+    1. Revisar a postagem do LinkedIn em questão quanto a erros gramaticais.\n
     2. Verifique também o alinhamento com a voz pessoal de uma pessoa mais {tom}.
   expected_output: >
     Um texto de LinkedIn pronto para publicação, seguindo o tom de voz esperado.
     O texto está separado em parágrafos e não usa bullet point.
   agent: editor
-  human_input: True

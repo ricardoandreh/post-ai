@@ -22,10 +22,10 @@ crewai install
 
 **Add your `OPENAI_API_KEY` into the `.env` file**
 
-- Modify `src/researcher_ai/config/agents.yaml` to define your agents
-- Modify `src/researcher_ai/config/tasks.yaml` to define your tasks
-- Modify `src/researcher_ai/crew.py` to add your own logic, tools and specific args
-- Modify `src/researcher_ai/main.py` to add custom inputs for your agents and tasks
+- Modify `src/post_ai/config/agents.yaml` to define your agents
+- Modify `src/post_ai/config/tasks.yaml` to define your tasks
+- Modify `src/post_ai/crew.py` to add your own logic, tools and specific args
+- Modify `src/post_ai/main.py` to add custom inputs for your agents and tasks
 
 ## Running the Project
 
@@ -37,7 +37,7 @@ $ crewai run
 
 This command initializes the researcher-ai Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+This example, unmodified, will run the create a `article.md` file with the output of a research on LLMs in the root folder.
 
 ## Understanding Your Crew
 

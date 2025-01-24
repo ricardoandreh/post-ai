@@ -1,0 +1,13 @@
+2025-01-24 20:52:53,391 - WARNING - AgentOps has already been initialized. If you are trying to start a session, call agentops.start_session() instead.
+2025-01-24 21:07:36,539 - WARNING - AgentOps has already been initialized. If you are trying to start a session, call agentops.start_session() instead.
+2025-01-24 21:09:41,709 - INFO - Session Replay: https://app.agentops.ai/drilldown?session_id=e24dbd22-3dc9-4c27-9e48-20741bd22f0f
+2025-01-24 21:10:16,197 - INFO - Session Stats - Duration: 34.7s | Cost: $0.001726 | LLMs: 3 | Tools: 0 | Actions: 0 | Errors: 0
+2025-01-24 21:10:16,197 - INFO - Session Replay: https://app.agentops.ai/drilldown?session_id=e24dbd22-3dc9-4c27-9e48-20741bd22f0f
+2025-01-24 21:10:16,198 - WARNING - Could not end session - no sessions detected
+2025-01-24 21:18:01,653 - WARNING - AgentOps has already been initialized. If you are trying to start a session, call agentops.start_session() instead.
+2025-01-24 21:19:57,006 - ERROR - Failed to start session
+2025-01-24 21:20:05,825 - ERROR - Could not record event. Start a session by calling agentops.start_session().
+2025-01-24 21:20:17,076 - ERROR - Could not record event. Start a session by calling agentops.start_session().
+2025-01-24 21:20:29,830 - ERROR - Could not record event. Start a session by calling agentops.start_session().
+2025-01-24 21:20:29,922 - WARNING - Could not end session - no sessions detected
+2025-01-24 21:20:29,923 - WARNING - Could not end session - no sessions detected
