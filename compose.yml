@@ -1,0 +1,21 @@
+name: post-ai
+
+services:
+  post-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: post-ai:latest
+    container_name: post-ai
+    env_file: .env
+    environment:
+      MODEL: ${MODEL:-gpt-4o-mini}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      AGENTOPS_API_KEY: ${AGENTOPS_API_KEY}
+    ports:
+      - 10000:10000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://0.0.0.0:10000/_stcore/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3

@@ -1,17 +1,20 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import ScrapeWebsiteTool, SerperDevTool
+
 
 @CrewBase
 class PostAi():
 	"""PostAi crew"""
 
-	agents_config = "config/agents.yaml"
-	tasks_config = "config/tasks.yaml"
+	agents_config = "config/agents.yml"
+	tasks_config = "config/tasks.yml"
 
 	@agent
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config["researcher"],
+			tools=[SerperDevTool(), ScrapeWebsiteTool()],
 			verbose=True,
 		)
 
