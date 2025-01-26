@@ -9,7 +9,7 @@ resolution-markers = [
 
 [[package]]
 name = "agentops"
-version = "0.3.25"
+version = "0.3.26"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -21,9 +21,9 @@ dependencies = [
     { name = "requests" },
     { name = "termcolor" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2f/df/eb00eaabebb51feae0724a5928f25df4d71d1c8392204f4f849351fd748c/agentops-0.3.25.tar.gz", hash = "sha256:868d855b6531d1fa2d1047db2cb03ddb1121062fd51c44b564dc626f15cc1e40", size = 234024 }
+sdist = { url = "https://files.pythonhosted.org/packages/76/a1/b03c6348a77798e750bde4eec03b4af620d71b9e4b64ff7dcf0860025a2d/agentops-0.3.26.tar.gz", hash = "sha256:bc824bf8727332f59bf803cf84440d13e9e398406222ab29f45909ac1e39f815", size = 234235 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e6/e3/9cff4ed65c5deac34f427ed60cd7af3604ec7ed8a999c351f6411e190d3b/agentops-0.3.25-py3-none-any.whl", hash = "sha256:4faebf73a62aa0bcac8578428277ca5b9af5e828f49f2cb03a9695b8426e6b9d", size = 71971 },
+    { url = "https://files.pythonhosted.org/packages/f5/21/671c458951850bd3a445aa09eafd2793aae1104fa68351a5c3976cdf762b/agentops-0.3.26-py3-none-any.whl", hash = "sha256:20948f52e3ffb4ba1d52301c3a82e59490182c4dad22774ad831dce0181eb5c2", size = 72090 },
 ]
 
 [[package]]
@@ -2779,7 +2779,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agentops", specifier = ">=0.3.25" },
+    { name = "agentops", specifier = ">=0.3.26" },
     { name = "crewai", extras = ["tools"], specifier = ">=0.98.0,<1.0.0" },
     { name = "pysqlite3-binary", specifier = ">=0.5.4" },
     { name = "streamlit", specifier = ">=1.41.1" },
