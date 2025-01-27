@@ -1,3 +1,5 @@
+from os import getenv
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import ScrapeWebsiteTool, SerperDevTool
@@ -15,6 +17,7 @@ class PostAi():
 		return Agent(
 			config=self.agents_config["researcher"],
 			tools=[SerperDevTool(), ScrapeWebsiteTool()],
+			llm=getenv("OPENAI_MODEL_NAME"),
 			verbose=True,
 		)
 
@@ -22,6 +25,7 @@ class PostAi():
 	def writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config["writer"],
+			llm=getenv("GROQ_MODEL_NAME"),
 			verbose=True,
 		)
 
@@ -29,6 +33,7 @@ class PostAi():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config["editor"],
+			llm=getenv("GROQ_MODEL_NAME"),
 			verbose=True,
 		)
 
