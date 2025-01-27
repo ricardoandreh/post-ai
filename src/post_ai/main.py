@@ -6,10 +6,11 @@ import agentops
 from dotenv import load_dotenv
 from post_ai.crew import PostAi
 
+load_dotenv()
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-load_dotenv()
-agentops.init(auto_start_session=False)
+agentops.end_all_sessions()
+agentops.init(auto_start_session=False, default_tags=["post-ai"])
 
 Tema = "Avanço e contribuições nos modelos multimodais no contexto da medicina" # Any topic
 Tom = "sério, acadêmico, totalmente formal e técnico"

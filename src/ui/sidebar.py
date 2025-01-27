@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def sidebar() -> None:
-  with st.sidebar:
+    with st.sidebar:
         st.header("📜 Histórico")
         
         if st.session_state["history"]:

@@ -1,7 +1,7 @@
 import streamlit as st
 
 from post_ai.main import run_via_streamlit
-from ui import extract_title, session_state, sidebar
+from ui import extract_title, session_state, sidebar, copyright
 
 st.set_page_config(
     page_title="Post AI",
@@ -10,19 +10,24 @@ st.set_page_config(
 )
 
 def main() -> None:
-    st.title("🌟 Post AI 🌟")
+    title, groq_copyright = st.columns((3, 1))
+
+    with title:
+        st.title("🌟 Post AI 🌟")
+
+    copyright(groq_copyright)
 
     Tema = st.text_input("Tema do artigo a ser desenvolvido")
     Tom = st.text_input("Qual a abordagem, informal, divertido, jornalístico etc")
     Aspectos = st.text_input("Características, interessante, cativante, factualmente correto etc")
 
-    col1, _, col2 = st.columns((3, 6, 4))
+    left_align, center_align, right_align = st.columns((1, 1, 1))
 
     post_container = st.container(border=True)
 
     session_state(post_container)
 
-    with col1:
+    with left_align:
         submit_button = st.button("Criar postagem")
 
     if submit_button:
@@ -32,7 +37,7 @@ def main() -> None:
             "aspectos": Aspectos,
         }
 
-        with col2:
+        with right_align:
             with st.spinner("Gerando sua postagem..."):
                 response = run_via_streamlit(inputs)
 

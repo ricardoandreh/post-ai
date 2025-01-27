@@ -17,7 +17,7 @@ class PostAi():
 		return Agent(
 			config=self.agents_config["researcher"],
 			tools=[SerperDevTool(), ScrapeWebsiteTool()],
-			llm=getenv("OPENAI_MODEL_NAME"),
+			llm=getenv("GEMINI_LLM_MODEL"),
 			verbose=True,
 		)
 
