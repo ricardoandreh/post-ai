@@ -1,7 +1,7 @@
 import streamlit as st
 
 from post_ai.main import run_via_streamlit
-from ui import extract_title, session_state, sidebar, copyright
+from ui import extract_title, session_state, sidebar, copyright, save_post
 
 st.set_page_config(
     page_title="Post AI",
@@ -19,7 +19,7 @@ def main() -> None:
 
     Tema = st.text_input("Tema do artigo a ser desenvolvido")
 
-    Tom = st.segmented_control(
+    Tom = st.pills(
         "Tom (abordagem)",
         [
             "formal", "informal",
@@ -28,14 +28,14 @@ def main() -> None:
         selection_mode="single",
     )
 
-    Aspectos = st.segmented_control(
+    Aspectos = st.multiselect(
         "Aspecto (características)",
         [
             "interessante", "cativante",
             "factualmente correto", "sério",
             "embasado", "engraçado", "criativo",
         ],
-        selection_mode="multi",
+        max_selections=4,
     )
 
     left_align, center_align, right_align = st.columns((1, 1, 1))
@@ -59,6 +59,11 @@ def main() -> None:
                 response = run_via_streamlit(inputs)
 
         title = extract_title(response) or Tema
+
+        save_post({
+            "title": title,
+            "content": response
+        })
 
         post_container.markdown(response)
 

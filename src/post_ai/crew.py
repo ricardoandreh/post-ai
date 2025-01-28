@@ -18,12 +18,6 @@ class PostAi():
 	)
 	web_rag_tool = WebsiteSearchTool(
 		config=dict(
-			llm=dict(
-				provider="groq",
-				config=dict(
-					model="gemma2-9b-it",
-				),
-			),
 			embedder=dict(
 				provider="google",
 				config=dict(

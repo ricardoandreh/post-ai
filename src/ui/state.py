@@ -1,16 +1,16 @@
 import streamlit as st
-
+from ui.serializers import get_one_post
 
 def session_state(post_container) -> None:
     if "history" not in st.session_state:
-        st.session_state["history"] = []
+        st.session_state.history = []
     
     if "view" in st.session_state:
-        selected_idx = st.session_state["view"]
+        post_title = st.session_state["view"]
 
-        if 0 <= selected_idx < len(st.session_state["history"]):
-            selected_post = st.session_state["history"][selected_idx]
-            post_container.markdown(selected_post["response"])
+        if (post := get_one_post(post_title)) is not False:
+            post_container.markdown(post["content"])
         else:
-            st.warning("O item selecionado não está mais disponível.")
             del st.session_state["view"]
+            
+            st.warning("O item selecionado não está mais disponível.")
