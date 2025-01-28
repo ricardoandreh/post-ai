@@ -18,8 +18,25 @@ def main() -> None:
     copyright(groq_copyright)
 
     Tema = st.text_input("Tema do artigo a ser desenvolvido")
-    Tom = st.text_input("Qual a abordagem, informal, divertido, jornalístico etc")
-    Aspectos = st.text_input("Características, interessante, cativante, factualmente correto etc")
+
+    Tom = st.segmented_control(
+        "Tom (abordagem)",
+        [
+            "formal", "informal",
+            "divertido", "jornalístico",
+        ],
+        selection_mode="single",
+    )
+
+    Aspectos = st.segmented_control(
+        "Aspecto (características)",
+        [
+            "interessante", "cativante",
+            "factualmente correto", "sério",
+            "embasado", "engraçado", "criativo",
+        ],
+        selection_mode="multi",
+    )
 
     left_align, center_align, right_align = st.columns((1, 1, 1))
 
@@ -34,7 +51,7 @@ def main() -> None:
         inputs = {
             "tema": Tema,
             "tom": Tom,
-            "aspectos": Aspectos,
+            "aspectos": ", ".join(Aspectos),
         }
 
         with right_align:

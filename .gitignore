@@ -3,3 +3,4 @@
 __pycache__/
 agentops.log
 article.md
+db/*

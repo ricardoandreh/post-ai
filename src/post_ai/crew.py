@@ -2,7 +2,7 @@ from os import getenv
 
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import ScrapeWebsiteTool, SerperDevTool
+from crewai_tools import ScrapeWebsiteTool, SerperDevTool, WebsiteSearchTool
 
 
 @CrewBase
@@ -11,12 +11,34 @@ class PostAi():
 
 	agents_config = "config/agents.yml"
 	tasks_config = "config/tasks.yml"
+	
+	serper_tool = SerperDevTool(
+		search_url="https://google.serper.dev/search",
+		n_results=10,
+	)
+	web_rag_tool = WebsiteSearchTool(
+		config=dict(
+			llm=dict(
+				provider="groq",
+				config=dict(
+					model="gemma2-9b-it",
+				),
+			),
+			embedder=dict(
+				provider="google",
+				config=dict(
+					model="models/text-embedding-004",
+					task_type="retrieval_document",
+				),
+			),
+		)
+	)
 
 	@agent
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config["researcher"],
-			tools=[SerperDevTool(), ScrapeWebsiteTool()],
+			tools=[self.serper_tool, self.web_rag_tool],
 			llm=getenv("GEMINI_LLM_MODEL"),
 			verbose=True,
 		)
@@ -25,7 +47,8 @@ class PostAi():
 	def writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config["writer"],
-			llm=getenv("GROQ_MODEL_NAME"),
+			tools=[self.web_rag_tool],
+			llm=getenv("GEMINI_LLM_MODEL"),
 			verbose=True,
 		)
 

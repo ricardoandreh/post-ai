@@ -29,9 +29,11 @@ edit:
     3. Defina o título em Markdown como: '# (título)'. Que esteja em conformidade com o tópico.
     4. Defina os subtópicos da postagem, tendo relação com tom de voz e conteúdo gerado.
     5. Use explicações argumentativas por parágrafo por extenso.
-    6. Caso for de melhor entendimento os bullet points, estruture e explique bem o subtópico em questão.
+    6. Use com moderação bullet points, estruture e explique bem o subtópico em questão.
+    7. Formate as palavras-chaves relevantes no final da postagem na conclusão.
+    8. Cada palavras-chave (keyword) com hashtag (#keyword) e separadas por um espaço.
   expected_output: >
     Um texto de LinkedIn pronto para publicação, seguindo o tom de voz esperado.
     Uma postagem de LinkedIn bem formatada e que atraía boas impressões.
-    Faça o retorno do conteúdo utilizando o idioma Português Brasileiro.
+    O retorno do conteúdo utilizando o idioma Português Brasileiro.
   agent: editor
