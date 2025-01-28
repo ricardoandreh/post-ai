@@ -4,3 +4,4 @@ __pycache__/
 agentops.log
 article.md
 db/*
+src/ui/posts/*
