@@ -9,13 +9,12 @@ from post_ai.crew import PostAi
 load_dotenv()
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-agentops.end_all_sessions()
 agentops.init(auto_start_session=False, default_tags=["post-ai"])
 
 Tema = "Avanço e contribuições nos modelos multimodais no contexto da medicina" # Any topic
 Tom = "sério, acadêmico, totalmente formal e técnico"
 Aspectos = "interessante, cativante e factualmente correto"
-
+Idioma = "Português Brasileiro"
 
 def run():
     """
@@ -25,6 +24,7 @@ def run():
         "tema": Tema,
         "tom": Tom,
         "aspectos": Aspectos,
+        "idioma": Idioma,
     }
     
     agentops.start_session()
@@ -36,8 +36,6 @@ def run():
         agentops.end_session("Failure")
 
         raise Exception(f"An error occurred while running the crew: {e}")
-    finally:
-        agentops.end_session("Success")
 
 def train():
     """
@@ -47,6 +45,7 @@ def train():
         "tema": "IA LLMs",
         "tom": "acadêmico e técnico",
         "aspectos": "cativante e interessante",
+        "idioma": "Português Brasileiro",
     }
     
     try:
@@ -76,6 +75,7 @@ def test():
         "tema": "IA LLMs",
         "tom": "acadêmico e técnico",
         "aspectos": "cativante e interessante",
+        "idioma": "Português Brasileiro",
     }
 
     try:
@@ -102,5 +102,4 @@ def run_via_streamlit(inputs):
         agentops.end_session("Failure")
 
         raise Exception(f"An error occurred while running the crew: {e}")
-    finally:
-        agentops.end_session("Success")
+

@@ -3,10 +3,11 @@ research:
     1. Priorize as últimas tendências, os principais autores e as notícias mais relevantes sobre {tema}.
     2. Identifique o público-alvo, considerando seus interessses e pontos de dor.
     3. Inclua palavras-chaves de SEO e dados ou fontes relevantes.
+    4. Faça as pesquisas no idioma {idioma}.
   expected_output: >
     Um plano de tendências sobre {tema}, com as palavras mais relevantes de SEO e as últimas notícias.
     Traga embasamento no conteúdo com base na pesquisa realizada.
-    Faça o retorno do conteúdo utilizando o idioma Português Brasileiro.
+    Faça o retorno do conteúdo utilizando o idioma {idioma}.
   agent: researcher
 
 write:
@@ -19,7 +20,7 @@ write:
     6. Certifique-se de que o post esteja estruturado de forma cativante, com uma conclusão que faça o leitor refletir.
   expected_output: >
     Um texto de LinkedIn sobre {tema}.
-    Faça o retorno do conteúdo utilizando o idioma Português Brasileiro.
+    Faça o retorno do conteúdo utilizando o idioma {idioma}.
   agent: writer
 
 edit:
@@ -35,5 +36,5 @@ edit:
   expected_output: >
     Um texto de LinkedIn pronto para publicação, seguindo o tom de voz esperado.
     Uma postagem de LinkedIn bem formatada e que atraía boas impressões.
-    O retorno do conteúdo utilizando o idioma Português Brasileiro.
+    O retorno do conteúdo utilizando o idioma {idioma}.
   agent: editor

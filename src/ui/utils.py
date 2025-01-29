@@ -4,7 +4,6 @@ from typing import Optional
 
 def extract_title(response) -> Optional[str]:
     """Extracts the title from the post text based on the patterns provided."""
-
     regex_patterns = (
         r"^\*\*(.*?)\*\*\n",
         r"^# (.*?)\n",
