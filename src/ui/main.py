@@ -4,11 +4,6 @@ import streamlit as st
 
 from ui import sidebar, copyright, form
 
-st.set_page_config(
-    page_title="Post AI",
-    page_icon=":memo:",
-    layout="centered",
-)
 
 def main() -> None:
     title, groq_copyright = st.columns((3, 1))
@@ -27,4 +22,10 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    st.set_page_config(
+        page_title="Post AI",
+        page_icon=":memo:",
+        layout="centered",
+    )
+    
     main()

@@ -1,6 +1,7 @@
 import streamlit as st
 from ui.state import get_one_post
 
+
 def post_view() -> None:
     post_container = st.container(border=True)
 

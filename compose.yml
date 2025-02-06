@@ -11,7 +11,8 @@ services:
     environment:
       GEMINI_LLM_MODEL: ${GEMINI_LLM_MODEL:-gemini/gemini-1.5-flash}
       GEMINI_API_KEY: ${GEMINI_API_KEY}
-      GROQ_MODEL_NAME: ${GROQ_MODEL_NAME:-groq/deepseek-r1-distill-llama-70b}
+      GROQ_CHAT_MODEL_WRITER: ${GROQ_CHAT_MODEL_WRITER:-groq/llama-3.3-70b-versatile}
+      GROQ_CHAT_MODEL_EDITOR: ${GROQ_CHAT_MODEL_EDITOR:-groq/deepseek-r1-distill-llama-70b}
       GROQ_API_KEY: ${GROQ_API_KEY}
       SERPER_API_KEY: ${SERPER_API_KEY}
       AGENTOPS_API_KEY: ${AGENTOPS_API_KEY}

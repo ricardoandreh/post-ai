@@ -1,17 +1,20 @@
 import streamlit as st
 
 from ui.state import get_all_posts, delete_post, delete_all_posts
-from ui.utils import get_post_title, reset_post_view
+from ui.utils import truncate_post_title
+
 
 @st.fragment
 def sidebar() -> None:
     st.header("📜 Histórico")
 
-    st.button(
+    if st.button(
         "🗞️ Nova postagem",
-        on_click=reset_post_view,
         use_container_width=True,
-    )
+    ):
+        del st.session_state["view"]
+
+        st.rerun()
     
     st.markdown("")
 
@@ -19,11 +22,11 @@ def sidebar() -> None:
     
     if all_posts:
         for idx, post in enumerate(all_posts):
-            post_title_columns, delete_post_column = st.columns((4, 1))
+            post_title_column, delete_post_column = st.columns((4, 1))
             
-            with post_title_columns:
+            with post_title_column:
                 if st.button(
-                    get_post_title(post["title"]),
+                    truncate_post_title(post["title"]),
                     use_container_width=True,
                     key=f"view_{idx}",
                 ):
@@ -48,4 +51,4 @@ def sidebar() -> None:
     ):
         delete_all_posts()
         
-        st.rerun()
+        st.rerun(scope="fragment")

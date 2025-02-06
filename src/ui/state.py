@@ -22,7 +22,7 @@ def save_post(post: Dict[str, Any]) -> bool:
         
         return False
 
-def get_one_post(post_title: str) -> Optional[Dict[str, Any]]:
+def get_one_post(post_title: str) -> Optional[Dict[str, str]]:
     """Recupera uma postagem específica pelo título."""
     file_path = POSTS_FOLDER / post_title
     
@@ -32,14 +32,16 @@ def get_one_post(post_title: str) -> Optional[Dict[str, Any]]:
     try:
         with open(file_path, "rb") as f:
             post = pickle.load(f)
+
             if "title" not in post or "content" not in post:
                 return None
+            
             return post
     except Exception as e:
         print(f"Erro ao recuperar post: {str(e)}")
         return None
 
-def get_all_posts() -> List[Dict[str, Any]]:
+def get_all_posts() -> List[Dict[str, str]]:
     """Recupera todas as postagens salvas."""
     posts = []
     
@@ -47,6 +49,7 @@ def get_all_posts() -> List[Dict[str, Any]]:
         try:
             with open(file, "rb") as f:
                 post = pickle.load(f)
+                
                 if "title" in post and "content" in post:
                     posts.append(post)
         except Exception as e:

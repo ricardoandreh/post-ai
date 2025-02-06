@@ -42,7 +42,7 @@ class PostAi():
 		return Agent(
 			config=self.agents_config["writer"],
 			tools=[self.web_rag_tool],
-			llm=getenv("GEMINI_LLM_MODEL"),
+			llm=getenv("GROQ_CHAT_MODEL_WRITER"),
 			verbose=True,
 		)
 
@@ -50,7 +50,7 @@ class PostAi():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config["editor"],
-			llm=getenv("GROQ_MODEL_NAME"),
+			llm=getenv("GROQ_CHAT_MODEL_EDITOR"),
 			verbose=True,
 		)
 
