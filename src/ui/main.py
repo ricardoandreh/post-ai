@@ -19,9 +19,11 @@ def main() -> None:
     with groq_copyright:
         copyright()
 
-    form()
+    with st.form("post-ai-form", border=False):
+        form()
 
-    sidebar()
+    with st.sidebar:
+        sidebar()
 
 
 if __name__ == "__main__":

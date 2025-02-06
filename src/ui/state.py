@@ -75,7 +75,7 @@ def delete_all_posts() -> Optional[bool]:
         return None
     
     for file in POSTS_FOLDER.iterdir():
-        if file.is_file() and file.suffix == ".pickle":
+        if file.is_file() and file.name != ".gitkeep":
             try:
                 file.unlink()
             except Exception as e:

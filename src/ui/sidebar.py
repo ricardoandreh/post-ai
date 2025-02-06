@@ -1,42 +1,51 @@
 import streamlit as st
+
 from ui.state import get_all_posts, delete_post, delete_all_posts
+from ui.utils import get_post_title, reset_post_view
 
-def get_post_title(post_title: str) -> str:
-    if len(post_title) > 28:
-        return f"{post_title[:25]}..."
-    
-    return post_title[:28]
-
+@st.fragment
 def sidebar() -> None:
-    with st.sidebar:
-        st.header("📜 Histórico")
+    st.header("📜 Histórico")
 
-        all_posts = get_all_posts()
-        
-        if all_posts:
-            for idx, post in enumerate(all_posts):
-                post_title_columns, remove_post_column = st.columns((4, 1))
-                
-                with post_title_columns:
-                    if st.button(get_post_title(post["title"]), key=f"view_{idx}"):
-                        st.session_state["view"] = post["title"]
+    st.button(
+        "🗞️ Nova postagem",
+        on_click=reset_post_view,
+        use_container_width=True,
+    )
+    
+    st.markdown("")
 
-                        st.rerun()
-
-                with remove_post_column:
-                    if st.button("🗑️", key=f"delete_{idx}"):
-                        delete_post(post["title"])
-
-                        st.rerun()
-        else:
-            st.write("Nenhum histórico registrado ainda.")
-        
-        st.divider()
-
-        if st.button("Limpar Todo Histórico", key="clean_history"):
-            delete_all_posts()
-
-            if "view" in st.session_state:
-                del st.session_state["view"]
+    all_posts = get_all_posts()
+    
+    if all_posts:
+        for idx, post in enumerate(all_posts):
+            post_title_columns, delete_post_column = st.columns((4, 1))
             
-            st.info("Histórico limpo!", icon="🧹")
+            with post_title_columns:
+                if st.button(
+                    get_post_title(post["title"]),
+                    use_container_width=True,
+                    key=f"view_{idx}",
+                ):
+                    st.session_state["view"] = post["title"]
+
+                    st.rerun()
+
+            with delete_post_column:
+                if st.button("🗑️", key=f"delete_{idx}"):
+                    delete_post(post["title"])
+
+                    st.rerun()
+    else:
+        st.write("Nenhum histórico registrado ainda.")
+    
+    st.divider()
+
+    if st.button(
+        "Limpar Todo Histórico",
+        use_container_width=True,
+        key="clean_history",
+    ):
+        delete_all_posts()
+        
+        st.rerun()

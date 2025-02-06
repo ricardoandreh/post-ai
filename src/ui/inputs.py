@@ -1,10 +1,10 @@
-from typing import List, Tuple
+from typing import List
 
 import streamlit as st
 
 
-def get_inputs() -> Tuple[str, str, str, str]:
-    Tema: str = st.text_input("Tema do artigo a ser desenvolvido")
+def display_inputs() -> None:
+    Tema: str = st.text_input("Tema do artigo a ser desenvolvido", key="tema")
 
     tone_column, language_column = st.columns((1, 1))
 
@@ -16,6 +16,7 @@ def get_inputs() -> Tuple[str, str, str, str]:
                 "divertido", "jornalístico",
             ),
             selection_mode="single",
+            key="tom",
         )
 
     with language_column:
@@ -24,7 +25,8 @@ def get_inputs() -> Tuple[str, str, str, str]:
             (
                 "Português Brasileiro", "Inglês", "Espanhol"
             ),
-            placeholder="Escolha um idioma"
+            placeholder="Escolha um idioma",
+            key="idioma",
         )
 
     Aspectos: List[str] = st.multiselect(
@@ -36,6 +38,5 @@ def get_inputs() -> Tuple[str, str, str, str]:
         ),
         max_selections=4,
         placeholder="Selecione no máximo 4 aspectos",
+        key="aspectos",
     )
-
-    return (Tema, Tom, Idioma, ", ".join(Aspectos))
